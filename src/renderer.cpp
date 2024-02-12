@@ -34,12 +34,17 @@ void renderer::draw_board(const std::vector<square>& squares) {
         }
 
         if (square.get_piece() != nullptr) {
+            square.get_piece()->draw();
             SDL_SetRenderDrawColor(sdl_renderer, 255, 0, 0, 255);
         }
 
         SDL_Rect rect = { x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE };
         SDL_RenderFillRect(sdl_renderer, &rect);
     }
+}
+
+void renderer::draw(std::string path) {
+    std::cout << "draw called" << std::endl;
 }
 
 bool renderer::handle_events() {

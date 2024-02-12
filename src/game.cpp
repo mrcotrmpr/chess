@@ -1,8 +1,9 @@
 #include "game.hpp"
 #include <iostream>
 #include "pieces/pawn.hpp";
+#include "renderer.hpp"
 
-game::game() : sdl_renderer(std::make_unique<renderer>()) {
+game::game() {
     init();
 }
 
@@ -52,12 +53,13 @@ void game::init() {
 }
 
 void game::start() {
-    sdl_renderer->create_window("Chess", 800, 800);
-    sdl_renderer->draw_board(squares);
+
+    renderer::instance().create_window("Title", 800, 800);
+    renderer::instance().draw_board(squares);
 
     bool quit = false;
     while (!quit) {
-        sdl_renderer->render_present();
-        quit = !sdl_renderer->handle_events();
+        renderer::instance().render_present();
+        quit = !renderer::instance().handle_events();
     }
 }

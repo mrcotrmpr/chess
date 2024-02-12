@@ -1,5 +1,7 @@
 #include "pieces/pawn.hpp"
+#include "renderer.hpp"
 #include <iostream>
+
 
 void Pawn::move()
 {
@@ -8,5 +10,5 @@ void Pawn::move()
 
 void Pawn::draw()
 {
-	std::cout << "draw() called" << std::endl;
+	renderer::instance().draw("pawn");
 }
