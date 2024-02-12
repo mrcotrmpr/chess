@@ -33,6 +33,10 @@ void renderer::draw_board(const std::vector<square>& squares) {
             SDL_SetRenderDrawColor(sdl_renderer, 0, 0, 0, 255);
         }
 
+        if (square.get_piece() != nullptr) {
+            SDL_SetRenderDrawColor(sdl_renderer, 255, 0, 0, 255);
+        }
+
         SDL_Rect rect = { x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE };
         SDL_RenderFillRect(sdl_renderer, &rect);
     }

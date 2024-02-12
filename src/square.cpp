@@ -1,6 +1,6 @@
 #include "square.hpp"
 
-square::square(int x, int y) : x(x), y(y) {}
+square::square(int x, int y) : x(x), y(y), piece(nullptr) {}
 
 int square::get_x() const {
 	return x;
